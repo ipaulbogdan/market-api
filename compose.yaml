@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=market'
+      - 'POSTGRES_PASSWORD=secret-password'
+      - 'POSTGRES_USER=market-user'
+    ports:
+      - 5432:5432

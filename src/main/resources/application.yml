@@ -1,0 +1,14 @@
+spring:
+    jpa:
+      hibernate:
+        ddl-auto: update
+    datasource:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgres://localhost:5432/market
+      username: market-user
+      password: secret-password
+
+
+exchange-rate-client:
+  url: https://api.freecurrencyapi.com/v1/latest
+  api-key: fca_live_Zk7lEyvtya7CcZZ0jR7YKd6wizMYCTb8O9KDVEQZ
