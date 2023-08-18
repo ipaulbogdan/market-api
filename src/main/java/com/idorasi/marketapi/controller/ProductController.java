@@ -4,9 +4,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import com.idorasi.marketapi.dto.ProductBuyDto;
 import com.idorasi.marketapi.dto.ProductCreateDto;
 import com.idorasi.marketapi.dto.ProductDto;
 import com.idorasi.marketapi.dto.ProductUpdateDto;
+import com.idorasi.marketapi.dto.TransactionDto;
 import com.idorasi.marketapi.model.RetiredProduct;
 import com.idorasi.marketapi.service.ProductService;
 import lombok.AllArgsConstructor;
@@ -33,6 +35,11 @@ public class ProductController {
     @PostMapping("/api/products/{publicId}/retire")
     public RetiredProduct retire(@PathVariable UUID publicId, @RequestParam(required = false) String reason) {
         return productService.retireProduct(publicId, reason);
+    }
+
+    @PostMapping("/api/products/{publicId}")
+    public TransactionDto buy(@RequestBody ProductBuyDto productBuyDto, @PathVariable UUID publicId) {
+        return productService.buyProduct(publicId, productBuyDto);
     }
 
     @PutMapping("/api/products/{publicId}")
